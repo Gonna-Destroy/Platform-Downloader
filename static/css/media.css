@@ -1,0 +1,298 @@
+@media (max-width: 730px){
+        
+    #multy {
+        width: 20%;
+        height: 20%;
+    }
+    
+    #block-welcome {
+        position: absolute;
+        top: 100px;
+        left: 45px;
+        width: 250px;
+    }
+    #choose{
+        position: absolute;
+        left: 38vw;
+    }
+    .radio {
+        height: 10px;
+        width: 10px;
+    }
+    #welcome {
+        font-size: 24px;
+    }
+    #go {
+        height: 35px;
+        width: 100px;
+        font-size: 20px;
+    }
+    #intro {
+        font-size: 16px;
+        width: 250px;
+    }
+    .arrow {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        height: 35px;
+    }
+    #left-arrow {
+        margin-top: 2px;
+    }
+    #title-of-page {
+        font-size: 30px;
+        height: 48px;
+    }
+    .titles {
+        padding: 12px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .advertisement {
+        visibility: hidden;
+        display: none;
+    }
+    .paragraphs {
+        font-size: 18px;
+        text-align: justify;
+        float: none;
+        width: 100%;
+    }
+    .core {
+        font-size: 18px;
+    }
+    #introduction {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 94%;
+    }
+    .galochka {
+        width: 25%;
+        height: 25%;
+        margin-right: 4%;
+        margin-bottom: 3%;
+        padding: 0;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1000px){
+    #right-arrow {
+        position: absolute;
+        left: 93vw;
+    }
+
+    .galochka {
+        width: 25%;
+        height: 25%;
+        margin-right: 4%;
+        margin-bottom: 3%;
+        padding: 0;
+    }
+
+    #enter {
+        font-size: 24px;
+
+    }
+
+    .titles {
+        text-align: center;
+    }
+
+    .paragraphs {
+        font-size: 24px;
+        text-align: justify;
+        float: none;
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 1000px)
+{
+    #right-arrow {
+        position: absolute;
+        left: 95vw;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 730px)
+{
+    #right-arrow {
+        position: absolute;
+        left: 92vw;
+    }
+
+    #main-form {
+        position: relative;
+        height: 220px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        width: 490px;
+    }
+
+    #enter {
+        padding: 0;
+        font-size: 18px;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 0;
+        
+    }
+    #url {
+        width: 90%;
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 0;
+        height: 28px;
+    }
+
+    #submit {
+        font-size: 20px;
+        margin-top: 10px;
+        padding: 0;
+        line-height: 28px;
+        height: 32px;
+        width: 90px;
+    }
+
+    #form {
+        position: absolute;
+        top: 48px;
+        padding-top: 30px;
+        padding: 0;
+    }
+
+}
+
+@media (min-width: 100px) and (max-width: 500px)
+{
+    #right-arrow {
+        position: absolute;
+        left: 88vw;
+    }
+    #go {
+        border-radius: 8px;
+    }
+    #submit {
+        border-radius: 8px;
+
+    }
+    #block-welcome {
+        top: 70px;
+    }
+}
+
+@media (max-width: 315px) {
+    #block-welcome {
+        width: 170px;
+    }
+    #welcome {
+        font-size: 20px;
+    }
+    
+    #intro {
+        font-size: 14px;
+        width: 170px;
+    }
+
+    #go {
+        height: 30px;
+        width: 80px;
+        font-size: 15px;
+    }
+    #title-of-page {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 500px){
+    #main-form {
+        position: relative;
+        height: 180px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    #enter {
+        padding: 0;
+        font-size: 16px;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 0;
+        
+    }
+    #url {
+        width: 90%;
+        font-size: 14px;
+        margin-top: 10px;
+        padding: 0;
+        height: 24px;
+    }
+
+    #submit {
+        font-size: 18px;
+        margin-top: 10px;
+        padding: 0;
+        line-height: 26px;
+        height: 32px;
+        width: 90px;
+    }
+
+    #form {
+        position: absolute;
+        top: 46px;
+        padding-top: 30px;
+        padding: 0;
+    }
+}
+
+@media (min-width: 1150px){
+    #main-form {
+        width: 800px;
+    }
+}
+
+@media (min-width: 730px) and (max-width: 1150px){
+
+    #main-form {
+        position: relative;
+        height: 180px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        width: 490px;
+    }
+
+    #enter {
+        padding: 0;
+        font-size: 16px;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 0;
+        
+    }
+    #url {
+        width: 90%;
+        font-size: 14px;
+        margin-top: 10px;
+        padding: 0;
+        height: 24px;
+    }
+
+    #submit {
+        font-size: 18px;
+        margin-top: 10px;
+        padding: 0;
+        line-height: 26px;
+        height: 32px;
+        width: 90px;
+    }
+
+    #form {
+        position: absolute;
+        top: 46px;
+        padding-top: 30px;
+        padding: 0;
+    }
+}
+

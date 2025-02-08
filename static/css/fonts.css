@@ -1,0 +1,11 @@
+
+@font-face {
+    font-family: 'Smooch Sans';
+    src: url('/home/Gonna_Destroy/Downloads/Smooch_Sans/static/SmoochSans-ExtraBold.ttf') format('truetype');
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Smooch Sans';
+    src: url('/home/Gonna_Destroy/Downloads/Smooch_Sans/static/SmoochSans-ExtraBold.ttf');
+}

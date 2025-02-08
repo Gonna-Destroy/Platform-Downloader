@@ -1,0 +1,323 @@
+@media (min-width: 650px) and (max-width: 900px){
+    #boks-video {
+        width: 600px;
+        height: 338px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    iframe {
+        width: 600px;
+        height: 338px;
+    }
+    #main-message {
+        width: 80%;
+    }
+}
+
+@media (min-width: 370px) and (max-width: 450px){
+    #boks-video {
+        width: 355px;
+        height: 200px;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    iframe {
+        width: 355px;
+        height: 200px;
+    }
+    #main-message {
+        font-size: 22px;
+        width: 86%;
+    }
+    .form-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        height: 35px;
+        
+    }
+    #submit {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10;
+    }
+
+    #params {
+        width: 280px;
+        height: 170px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .buttons {
+        height: 35px;
+        width: 55px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-top: 7px;
+        margin-bottom: 3px;
+    }
+
+}
+
+@media (min-width: 450px) and (max-width: 650px)
+{
+    #boks-video {
+        width: 440px;
+        height: 248px;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    iframe {
+        width: 440px;
+        height: 248px;
+    }
+    #main-message {
+        font-size: 28px;
+        width: 85%;
+    }
+    #params {
+        width: 420px;
+        height: 250px;
+    }
+
+}
+
+@media (min-width: 350px) and (max-width: 370px){
+    #main-message {
+        font-size: 20px;
+        width: 350px;
+        margin: 0;
+        margin-bottom: 35px;
+        margin-top: 35px;
+    }
+    #boks-video {
+        width: 344px;
+        height: 194px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 0px;
+        border: none;
+    }
+    iframe {
+        width: 344px;
+        height: 194px;
+        border-radius: 10px;
+    
+    }
+    .form-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        height: 35px;
+        
+    }
+    #submit {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10;
+        border: 1px solid white;
+    }
+
+    #params {
+        width: 280px;
+        height: 170px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .buttons {
+        height: 35px;
+        width: 55px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-top: 7px;
+        margin-bottom: 3px;
+        border: 1px solid white;
+    }
+
+}
+
+@media (min-width: 336px) and (max-width: 350px){
+    #main-message {
+        font-size: 15px;
+        width: 70%;
+        
+        margin-bottom: 35px;
+        margin-top: 35px;
+    }
+    #boks-video {
+        width: 330px;
+        height: 185px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    iframe {
+        width: 330px;
+        height: 185px;
+    
+    }
+    .form-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        height: 35px;
+        
+    }
+    #submit {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10;
+    }
+
+    #params {
+        width: 280px;
+        height: 170px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .buttons {
+        height: 35px;
+        width: 55px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-top: 7px;
+        margin-bottom: 3px;
+        border: 1px solid white;
+    }
+}
+
+
+@media (max-width: 336px){
+    #main-message {
+        font-size: 15px;
+        width: 70%;
+        
+        margin-bottom: 35px;
+        margin-top: 35px;
+    }
+    #boks-video {
+        width: 300px;
+        height: 169px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 0px;
+    }
+    iframe {
+        width: 300px;
+        height: 169px;
+    
+    }
+    .form-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        height: 35px;
+        
+    }
+    #submit {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10;
+        border: 1px solid white;
+
+    }
+
+    #params {
+        width: 280px;
+        height: 170px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .buttons {
+        height: 35px;
+        width: 55px;
+        font-size: 15px;
+        border-radius: 5px;
+        margin-top: 7px;
+        margin-bottom: 3px;
+        border: 1px solid white;
+    }
+}
+
+
+@media (max-width: 315px){
+    #main-message {
+        font-size: 15px;
+        width: 80%;
+        height: 25px;
+        margin-bottom: 35px;
+        margin-top: 35px;
+    }
+    #boks-video {
+        width: 240px;
+        height: 135px;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    iframe {
+        width: 240px;
+        height: 135px;
+    }
+    
+    .form-group {
+        font-size: 20px;
+        height: 35px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    #submit {
+        width: 80px;
+        height: 20px;
+        font-size: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        margin-top: 10;
+        border: 1px solid white;
+
+    }
+
+    #params {
+        width: 190px;
+        height: 140px;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        border-radius: 10px;
+    }
+
+    .buttons {
+        height: 20px;
+        width: 35px;
+        font-size: 8px;
+        border-radius: 3px;
+        border: 1px solid white;
+
+    }
+}

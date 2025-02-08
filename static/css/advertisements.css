@@ -1,0 +1,25 @@
+.advertisements {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#left-adv, #right-adv {
+    width: 18%;
+    background-color: rgb(145, 159, 161);
+}
+
+#right-adv {
+    margin-left: 3%;
+}
+
+.core {
+    text-align: justify;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 28px;
+    margin-left: 50px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+}

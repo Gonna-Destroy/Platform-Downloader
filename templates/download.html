@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваше видео успешно найдено!</title>
+    
+    <link rel="icon" href="/static/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/static/favicons/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/static/css/download.css">
+    <link rel="stylesheet" href="/static/css/media-download.css">
+</head>
+<body>
+
+    <div id="main">
+        <span id="main-message">Отлично! Теперь выберите качество и формат. </span>
+            
+        <div id="boks-video">
+            <iframe id="link" src="{{ link }}"></iframe>
+        </div>
+
+        <div id="params">
+            <form id="send-params" action="/success" method="POST">
+                <div class="form-group">
+                    <button type="button" class="buttons" data-quality="360p">360p</button>
+                    <button type="button" class="buttons" data-quality="480p">480p</button>
+                    <button type="button" class="buttons" data-quality="720p">720p</button>
+                    <button type="button" class="buttons" data-quality="1080p">1080p</button>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="buttons" data-format="mp4">MP4</button>
+                    <button type="button" class="buttons" data-format="webm">WebM</button>
+                    <button type="button" class="buttons" data-format="mp3">MP3</button>
+                    <button type="button" class="buttons" data-format="ogg">OGG</button>
+                </div>
+                <input type="hidden" id="url" name="url">
+                <input type="hidden" id="format" name="format">
+                <input type="hidden" id="quality" name="quality">
+                <input type="submit" id="submit" value="Подтвердить">
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/download.js"></script>
+
+</body>
+</html>

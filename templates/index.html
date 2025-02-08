@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Скачивай любое YouTube, VK, Instagram, Tiktok видео БЕСПЛАТНО!</title>
+
+    <link rel="icon" href="/static/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/static/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/static/favicons/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/introduction.css">
+    <link rel="stylesheet" href="/static/css/advertisements.css">
+    <link rel="stylesheet" href="/static/css/form.css">
+    <link rel="stylesheet" href="/static/css/media.css">
+</head>
+<body>
+
+    <div id="header">
+        <span id="title-of-page">Platform Downloader</span>
+    </div>
+
+    <div id="main-picture">
+        <img src="/static/pictures/forward-right.png" onclick="arrow_change(this.id)" class="arrow" id="right-arrow" alt="Стрелка вправо, смена фона">
+        <img src="/static/pictures/forward-left.png" onclick="arrow_change(this.id)" class="arrow" id="left-arrow" alt="Стрелка влево, смена фона">
+        <div id="block-welcome">
+            <span id="welcome">Добро пожаловать!</span>
+            <span id="intro">Скачивай любое видео с таких платформ как: YouTube, TikTok, Instagram, VK - совершенно бесплатно!</span>
+            <button id="go"><a href="#enter-url">Перейти</a></button>
+        </div>
+        <div id="choose">
+            <input onclick="check_click(this)" id="first" type="radio" class="radio" name="click" value="1" checked="true">
+            <input onclick="check_click(this)" id="second" type="radio" class="radio" name="click" value="2">
+            <input onclick="check_click(this)" id="third" type="radio" class="radio" name="click" value="3">
+            <input onclick="check_click(this)" id="fourth" type="radio" class="radio" name="click" value="4">
+        </div>
+    </div>
+
+    <h1 class="titles">Ваш универсальный инструмент для скачивания видео с любой платформы!</h1>
+
+    <!-- <div id="info"> -->
+        <!-- <div class="advertisements" id="left-adv">
+            <div class="advertisement"></div>
+        </div> -->
+
+        <div id="introduction">
+
+            <p class="core" id="enter-url">Погружайтесь в мир бесконечных возможностей с нашим удобным и мощным инструментом для скачивания видео. Независимо от того, хотите ли вы сохранить любимые видеоролики на своем устройстве для офлайн-просмотра или собрать коллекцию ценных учебных материалов, наш сайт предоставляет вам все необходимое.</p>
+              
+            <div id="main-form">
+                <form id="form" action="/download" method="POST">
+                    <label name="url" id="enter">Введите URL вашего видео</label>
+                    <input type="url" id="url" name="url" placeholder=" Твой URL" required>
+                    <input type="submit" id="submit" value="Начать" >
+                </form>
+            </div>
+
+            <h2 class="titles">Интуитивно понятный интерфейс.</h2>
+
+            <div class="block">
+                <img class='galochka' src="/static/pictures/user-friendly.png" alt="Удобство в использовании">
+                <p class="paragraphs">Мы понимаем, что удобство использования имеет решающее значение. Именно поэтому наш интерфейс спроектирован так, чтобы каждый пользователь, независимо от уровня технической подготовки, мог легко ориентироваться и скачивать видео в несколько кликов. Просто введите ссылку на видео с любой платформы, выберите желаемое качество и формат – и готово!</p>
+            </div>
+            <h2 class="titles">Высокое качество скачиваемого контента.</h2>     
+
+            <div class="block">   
+                <img class='galochka' src="/static/pictures/management.png" alt="Высокое разрешение видео">
+                <p class="paragraphs">Зачем ограничиваться низким разрешением, если можно скачать видео в HD? Наш инструмент позволяет сохранять видео в наивысшем возможном качестве, сохраняя каждый пиксель и звук, чтобы вы могли наслаждаться видео в максимальном разрешении.</p>
+            </div>
+            <h2 class="titles">Многофункциональность.</h2>
+
+            <div class="block">
+                <img class='galochka' src="/static/pictures/user-experience.png" id="multy" alt="Мы многофункциональные">
+                <p class="paragraphs">С нашим сервисом вы можете не только скачивать видео практически с любой платформы, но и извлекать аудио. Идеально для тех, кто хочет собрать коллекцию любимых треков, подкастов или аудиокниг. Выберите формат MP3 и наслаждайтесь чистым звуком без лишних усилий.</p>
+            </div>
+            <h2 class="titles">Безопасность и конфиденциальность.</h2>
+
+            <div class="block">
+                <img class='galochka' src="/static/pictures/cyber-security.png" alt="Мы беспокоимся о вашей безопасности">
+                <p class="paragraphs">Ваши данные и конфиденциальность – наш приоритет. Наш сайт защищен последними технологиями шифрования, что гарантирует безопасность и надежность каждого скачивания. Мы не собираем и не храним ваши данные.</p>
+            </div>
+
+            <h2 class="titles">Начните прямо сейчас!</h2>
+
+            <div class="block">
+                <img class='galochka' src="/static/pictures/go.png" alt="Начинайте использование!">
+                <p class="paragraphs">Не откладывайте на потом – попробуйте наш инструмент для скачивания видео с различных платформ уже сегодня и оцените все его преимущества. Откройте для себя новый уровень удобства и возможностей!</p>
+                <p class="paragraphs">Попробуйте наш сервис, и вы больше никогда не захотите искать альтернативу.</p>
+            </div>     
+
+        </div>
+        <!-- 
+        <div class="advertisements" id="right-adv">
+            <div class="advertisement"></div>
+        </div> -->
+    <!-- </div> -->
+
+    <script src="/static/js/button.js"></script>
+    <script src="/static/js/load.js"></script>
+</body>
+</html>

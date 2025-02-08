@@ -1,0 +1,132 @@
+
+@font-face {
+    font-family: 'Smooch Sans';
+    src: url('/static/fonts/SmoochSans-ExtraBold.ttf');
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(175, 190, 197);
+}
+
+#header {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 68px;
+    background-color: rgb(38, 47, 50);    
+    text-align: center;
+}
+
+#title-of-page {
+    font-family: 'Smooch Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    line-height: 68px;
+    color: red;
+    text-transform: uppercase;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#main-picture {
+    width: 100%;
+    height: 330px;
+    padding: 0;
+    margin: 0;
+    background-image: url('/static/pictures/first-picture.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    transition: background-image 1s ease-in-out;
+    position: relative;
+}
+
+#block-welcome {
+    position: absolute;
+    left: 25vw;
+    top: 15%;
+}
+
+#welcome {
+    width: 450px;
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 350;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-size: 40px;
+}
+
+#intro {
+    margin: 0;
+    margin-top: 10px;
+    display: block;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    width: 500px;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+}
+
+#go {
+    background-color: rgb(54, 187, 236);
+    height: 50px;
+    width: 150px;
+    border-radius: 15px;
+    font-size: 26px;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+#choose {
+    position: absolute;
+    top: 93%;
+    left: 45vw;
+}
+
+.radio {
+    cursor: pointer;
+}
+
+.arrow {
+    display: block;
+    height: 50px;
+    position: absolute;
+    top: 43%;
+    cursor: pointer;
+}
+
+#right-arrow{
+    left: 96vw;
+    position: absolute;
+}
+
+#go:hover{
+    background-color: rgb(23, 37, 42);
+}
+
+#go:active{
+    background-color: rgb(84, 178, 246);
+}
+
+
+
