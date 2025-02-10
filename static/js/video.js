@@ -1,5 +1,5 @@
-var source = document.getElementsByName("source")
-var type = source.type
-if (type[5] == "audio"){
-    document.getElementById("video")
-}
+window.addEventListener('beforeunload', () => {
+    link = document.getElementById('a').href
+    const data = JSON.stringify({'uuid': link})
+    navigator.sendBeacon('/delete', data)
+})

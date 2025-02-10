@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="/static/css/download.css">
     <link rel="stylesheet" href="/static/css/media-download.css">
+    <link rel="stylesheet" href="/static/css/progress.css">
 </head>
 <body>
 
@@ -20,6 +21,14 @@
             
         <div id="boks-video">
             <iframe id="link" src="{{ link }}"></iframe>
+        </div>
+
+        <div id="progressbar">
+            <div id="visible-progress">
+                <span class="progress">Loading video: </span>
+                <span id="percent" class="progress">0</span>
+                <span class="progress">%</span>
+            </div>
         </div>
 
         <div id="params">

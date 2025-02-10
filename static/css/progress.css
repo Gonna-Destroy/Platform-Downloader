@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Smooch Sans';
+    src: url('/static/fonts/SmoochSans-ExtraBold.ttf');
+}
+
+#visible-progress {
+    display: none;
+}
+
+.progress {
+    font-family: 'Smooch Sans';
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 100px;
+}
+
+#progressbar {
+    height: 100px;
+}
+
+@media (max-width: 500px){
+    .progress {
+        font-size: 22px;
+    }
+    #progressbar {
+        height: 72px;
+        line-height: 72px;
+    }
+}
+
+@media (max-width: 370px){
+    .progress {
+        font-size: 20px;
+    }
+}
