@@ -1,21 +1,39 @@
-from fastapi import FastAPI, Request, HTTPException, Form, BackgroundTasks, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, Request, Form, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from os import remove
-from os.path import isdir, isfile, join, basename, exists
+from os.path import join, basename
 from yt_dlp import YoutubeDL
-from yt_dlp.utils import DownloadError, ExtractorError
+# from yt_dlp.utils import DownloadError, ExtractorError
 from pydantic import BaseModel
-import asyncio
 import time
 from uuid import uuid4
 import json
-import storage
 import re
+from multiprocessing import Process, Lock, Manager
+
+# import logging
+import clean
+
 
 app = FastAPI()
+
+
+lock = Lock()
+manager = Manager()
+progresses = manager.dict()
+processes = {}
+
+
+# logger = logging.getLogger('processor')
+# file_handler = logging.FileHandler(filename='logs/processes.log', mode='a')
+# file_handler.setLevel(logging.INFO)
+# formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+# file_handler.setFormatter(formatter)
+# logger.addHandler(file_handler)
+
+
 class VideoRequest(BaseModel):
     format: str
     quality: str
@@ -29,46 +47,37 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/downloads", StaticFiles(directory="downloads"), name="downloads")
 templates = Jinja2Templates(directory="templates")
 
+
+@app.on_event('startup')
+async def start():
+    clear = Process(target=clean.cleaning, daemon=True)
+    clear.start()
+
+
 @app.get("/")
 async def general(request: Request):
-    try: 
-        return templates.TemplateResponse("index.html", context={'request': request})
-    except:
-        return templates.TemplateResponse("error.html", context={'request': request, 'message': '404 Ресурс недоступен.'})
-
+    return templates.TemplateResponse("index.html", context={'request': request})
+    
 
 @app.post("/download", response_class=HTMLResponse)
 async def send_download_page(request: Request, url: str = Form(...)):
-    # try:
-    #     response = requests.head(url=url, allow_redirects=True) 
-    #     if response.status_code == 200:
-    #         try: 
-    #             return templates.TemplateResponse('download.html', context={'request': request, 'link': url})
-    #         except:
-    #             return templates.TemplateResponse("error.html", context={'request': request, 'message': '404 Ресурс недоступен.'})
-    #     else:
-    #         return templates.TemplateResponse('error.html', {'request': request, 'message': 'По данному URL видео недоступно для скачивания, возможно оно было перемещено.'})
-    # except requests.RequestException:
-    #     return templates.TemplateResponse('error.html', {'request': request, 'message': 'По данному URL видео недоступно для скачивания, возможно оно было перемещено.'})
-
     return templates.TemplateResponse('download.html', {'request': request, 'link': url})
+
 
 @app.get('/static/{filepath}')
 async def static(filepath: str):
-    if isfile(f"static/{filepath}"):
-        return FileResponse(f"static/{filepath}")
-    else:
-        raise HTTPException(status_code=404, detail="This file is not found!")
+    return FileResponse(f"static/{filepath}")
+    
 
-def download_video(opt, url):
+def download_video(opt, url, uuid):
     with YoutubeDL(opt) as video:
         video.download(url)
 
+
 @app.post('/success', response_class=JSONResponse)
-async def load_video(request: Request, background_task: BackgroundTasks, video_info: VideoRequest):
+async def load_video(video_info: VideoRequest):
     
     format_video = video_info.format.lower()
-    opt = {}
     title = f"{int(time.time())}_{uuid4()}"
 
     if format_video == 'mp4':
@@ -87,7 +96,6 @@ async def load_video(request: Request, background_task: BackgroundTasks, video_i
                 'preferredquality': '192',
             }],
             'progress_hooks': [lambda data: update_progress(data, f'{title}.{format_video}')]
-
         }
     elif format_video == 'webm':
         # opt = {
@@ -98,13 +106,12 @@ async def load_video(request: Request, background_task: BackgroundTasks, video_i
         #             'preferedformat': 'webm'
         #         }]
         #     }
+        format_video = 'mp4'
         opt = {
             'format': 'mp4',
             'outtmpl': join('downloads/',f'{title}.%(ext)s'),
             'progress_hooks': [lambda data: update_progress(data, f'{title}.{format_video}')]
-
         }
-        format_video = 'mp4'
     elif format_video == 'ogg':
          opt = {
             'format': 'bestaudio/best',
@@ -116,28 +123,36 @@ async def load_video(request: Request, background_task: BackgroundTasks, video_i
             }],
             'progress_hooks': [lambda data: update_progress(data, f'{title}.{format_video}')]
         }
+         
+    uuid = f'{title}.{format_video}'
 
-    background_task.add_task(download_video, opt, video_info.url)
+    process = Process(target=download_video, args=(opt, video_info.url, uuid))
+    processes[uuid] = process
+    process.start()
         
     return JSONResponse(content={
             'load': 'start',
             'url': f'downloads/{title}.{format_video}',
         })
 
+
 def extract_percent(percent_str):
     match = re.search(r'(\d+(\.\d+)?)%', percent_str)
     return match.group(1) if match else "0"
+
 
 def update_progress(data, title):
     status = data.get('status')
     if status == 'downloading':
         progress_full = data['_percent_str'].strip()
         progress = extract_percent(progress_full)
-        storage.update_element(progress, title)
+        global lock
+        with lock:
+            progresses[title] = progress
     elif status == 'finished':
-        storage.update_element("100.0", title)
-    # elif status in ['extracting', 'preparing']:
-    #     update_element("preparing", title)
+        with lock:
+            progresses[title] = "100.0"
+
 
 @app.get('/error')
 async def get_error(request: Request):
@@ -145,6 +160,7 @@ async def get_error(request: Request):
           'request': request,
           'message': 'К сожалению, видео скачать не удалось в данном формате...\nПроверьте, пожалуйста, URL.'
     })
+
 
 @app.get('/success')
 async def get_video_page(request: Request, format: str, url: str):
@@ -173,22 +189,24 @@ async def get_video(filename: str, format: str):
 @app.websocket('/progress')
 async def get_progress(websocket: WebSocket):
     await websocket.accept()
-    while True:
-        message = await websocket.receive_text()
-        response = json.loads(message)
-        uuid = response.get('uuid')
-        
-        percent = storage.get_element(basename(uuid))
+    title = ''
+    try:
+        while True:
+            message = await websocket.receive_text()
+            response = json.loads(message)
+            uuid = response.get('uuid')
+            title = basename(uuid)
+            
+            with lock:
+                percent = progresses.get(title)
 
-        await websocket.send_json({'curper': percent })
+            await websocket.send_json({'curper': percent })
 
-        if percent == "100.0":
-            await websocket.close()
-            storage.delete_item(basename(uuid))
+            if percent == "100.0":
+                await websocket.close()
+    except WebSocketDisconnect:
+        process = processes.get(title)
+        progress = progresses.pop(title)
+        process.kill()
 
-
-@app.get('/delete')
-async def delete_video(uuid: str):
-    remove(uuid)
-    if exists(uuid) is False:
-        print('true')
+    

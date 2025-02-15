@@ -1,0 +1,214 @@
+@media (max-width: 450px) and (min-width: 370px) {
+    #video {
+        width: 355px;
+        height: 200px;
+    }
+    #place {
+        width: 355px;
+        height: 200px;
+        border-radius: 15px;
+    }
+    button {
+        width: 100px;
+        height: 40px;
+        margin-top: 20px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    input {
+        font-size: 18px;
+        width: 200px;
+        height: 24px;
+    }
+    #label {
+        font-size: 20px;
+    }
+    #panel-download {
+        margin-top: 26px;
+        margin-left: 5px;
+
+    }
+}
+
+@media (min-width: 450px) and (max-width: 650px)
+{
+    #video {
+        width: 440px;
+        height: 248px;
+    }
+    #place {
+        width: 440px;
+        height: 248px;
+        border-radius: 15px;
+    }
+    button {
+        width: 120px;
+        height: 46px;
+        margin-top: 26px;
+        border-radius: 10px;
+        font-size: 24px;
+    }
+    input {
+        font-size: 20px;
+        width: 250px;
+        height: 28px;
+    }
+    #label {
+        font-size: 22px;
+    }
+    #panel-download {
+        margin-top: 30px;
+        margin-left: 5px;
+
+    }
+    
+}
+
+@media (min-width: 350px) and (max-width: 370px) {
+    #video {
+        width: 344px;
+        height: 194px;
+    }
+    #place {
+        width: 340px;
+        height: 194px;
+        border-radius: 10px;
+    }
+    button {
+        width: 90px;
+        height: 34px;
+        margin-top: 16px;
+        border-radius: 5px;
+        font-size: 18px;
+        border: 1px solid white;
+    }
+    input {
+        font-size: 16px;
+        width: 200px;
+        height: 20px;
+        border-radius: 3px;
+    }
+    #label {
+        font-size: 18px;
+    }
+    #panel-download {
+        margin-top: 22px;
+        margin-left: 5px;
+
+    }
+
+}
+
+@media (min-width: 336px) and (max-width: 350px)
+{
+    #video {
+        width: 326px;
+        height: 185px;
+    }
+    #place {
+        width: 326px;
+        height: 185px;
+        border-radius: 10px;
+    }
+    button {
+        width: 90px;
+        height: 34px;
+        margin-top: 16px;
+        border-radius: 5px;
+        font-size: 18px;
+        border: 1px solid white;
+    }
+    input {
+        font-size: 16px;
+        width: 200px;
+        height: 20px;
+        border-radius: 3px;
+    }
+    #label {
+        font-size: 18px;
+    }
+    #panel-download {
+        margin-top: 22px;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 336px){
+
+    #video {
+        width: 310px;
+        height: 180px;
+    }
+    #place {
+        width: 308px;
+        height: 174px;
+        border-radius: 10px;
+    }
+    button {
+        width: 80px;
+        height: 30px;
+        margin-top: 16px;
+        border-radius: 5px;
+        font-size: 16px;
+        border: 1px solid white;
+    }
+    input {
+        font-size: 16px;
+        width: 180px;
+        height: 18px;
+        border-radius: 3px;
+    }
+    #label {
+        font-size: 16px;
+    }
+    #panel-download {
+        margin-top: 20px;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 315px){
+    #video {
+        width: 240px;
+        height: 135px;
+    }
+    #place {
+        width: 240px;
+        height: 135px;
+        border-radius: 5px;
+    }
+    button {
+        width: 74px;
+        height: 24px;
+        margin-top: 16px;
+        border-radius: 5px;
+        font-size: 12px;
+        border: 1px solid white;
+    }
+    input {
+        font-size: 14px;
+        width: 180px;
+        height: 16px;
+        border-radius: 3px;
+    }
+    #label {
+        font-size: 14px;
+    }
+    #panel-download {
+        margin-left: 5px;
+        margin-top: 16px;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 900px){
+    #video {
+        width: 600px;
+        height: 338px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    #place {
+        width: 600px;
+        height: 338px;
+    }
+}

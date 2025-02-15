@@ -1,8 +1,14 @@
 
 document.addEventListener('DOMContentLoaded', main);
+var link;
+var cycle;
 
 const buttons = document.querySelectorAll('.buttons');
 const form = document.getElementById('send-params');
+
+async function message() {
+    await alert("Не обновляйте страницу, иначе видео начнёт скачивание сначала!")
+}
 
 form.addEventListener('submit', function (event){
     event.preventDefault();
@@ -40,6 +46,9 @@ form.addEventListener('submit', function (event){
         })
         .then(dataResponse => {
             if (dataResponse.load === 'start') {
+                message()
+
+                link = dataResponse.url
 
                 const ws = new WebSocket('/progress')
                 percent = document.getElementById('percent')
@@ -49,24 +58,29 @@ form.addEventListener('submit', function (event){
                 }
 
                 ws.onopen = function(event) {
-                    setInterval(() => {
+                    cycle = setInterval(() => {
                         ws.send(JSON.stringify(data_for_send))
                     }, 1000)
                 }
 
                 ws.onmessage = function(event) {
                     info = JSON.parse(event.data)
-                    if (info.curper === '')
-                        percent.textContent = "0.5"
-                    else 
+                    if (/^\d+(\.\d+)?$/.test(info.curper)){
                         percent.textContent = info.curper
+                    }
+                    else {
+                        var insert = "0.1"
+                        percent.textContent = insert
+                    }
                 }
 
                 ws.onclose = function(event) {
+                    clearInterval(cycle)
                     window.location.href = `/success?format=${format}&url=${dataResponse.url}`
                 }
 
                 ws.onerror = function(event) {
+                    clearInterval(cycle)
                     window.location.href = `/error`
                 }
             }
@@ -115,8 +129,8 @@ function main() {
         }
     );
 }
-window.addEventListener('beforeunload', () => {
-    link = document.getElementById('a').href
-    const data = JSON.stringify({'uuid': link})
-    navigator.sendBeacon('/delete', data)
-})
+
+// window.addEventListener('unload', () => {
+//     const data = JSON.stringify({'title': link})
+//     navigator.sendBeacon('/delload', data)
+// })

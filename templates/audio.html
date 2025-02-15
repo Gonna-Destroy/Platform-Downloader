@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,8 @@
     <link rel="apple-touch-icon" href="/static/favicon/apple-touch-icon.png">
     
     <link rel="stylesheet" href="/static/css/video.css">
+    <link rel="stylesheet" href="/static/css/media-video.css">
+
 </head>
 <body>
     <div id="window">
@@ -18,12 +20,13 @@
                 <label for="title" id="label">Назовите файл </label>
                 <input type="text" name="title" placeholder="your_audio" value="your_audio">
             </div>
-            <button><a href="{{ link }}" download="your_audio.{{ format }}"><i>Скачать</i></a></button>
+            <button id="download"><i>Скачать</i></button>
         </div>
         <audio id="audio" controls autoplay>
             <source src="{{ link }}" type="audio/{{ format }}">
         </audio>
     </div>
-    
+    <!-- <script src="/static/js/video.js"></script> -->
+    <script src="/static/js/delete.js"></script>
 </body>
 </html>
